@@ -1,0 +1,92 @@
+{
+  "name": "chezmoi-tools",
+  "displayName": "Chezmoi Tools",
+  "description": "Chezmoi Tools is a Visual Studio Code extension designed to simplify managing dotfiles using Chezmoi. It provides seamless integration and enhances your workflow with intuitive commands directly accessible from VS Code.",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chezmoi",
+    "dotfiles",
+    "vscode",
+    "extension",
+    "tools"
+  ],
+  "publisher": "jorcelinojunior",
+  "author": {
+    "name": "Jorcelino Junior",
+    "email": "jorcelino@live.com"
+  },
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorcelinojunior/chezmoi-tools.git"
+  },
+  "homepage": "https://github.com/jorcelinojunior/chezmoi-tools#readme",
+  "bugs": {
+    "url": "https://github.com/jorcelinojunior/chezmoi-tools/issues"
+  },
+  "main": "./out/extension.js",
+  "contributes": {
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "chezmoi-tools.add",
+          "when": "resourceLangId == shellscript",
+          "group": "navigation"
+        },
+        {
+          "command": "chezmoi-tools.forget",
+          "when": "resourceLangId == shellscript",
+          "group": "navigation"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "chezmoi-tools.add",
+        "title": "Add File to Chezmoi"
+      },
+      {
+        "command": "chezmoi-tools.forget",
+        "title": "Remove File from Chezmoi"
+      },
+      {
+        "command": "chezmoi-tools.edit",
+        "title": "Edit Managed File"
+      },
+      {
+        "command": "chezmoi-tools.apply",
+        "title": "Apply Chezmoi Changes"
+      },
+      {
+        "command": "chezmoi-tools.diff",
+        "title": "Show Chezmoi Diff"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src",
+    "test": "npm run compile && npm run lint",
+    "generate-bundle": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.96.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.17.0",
+    "typescript": "^5.7.2"
+  }
+}
