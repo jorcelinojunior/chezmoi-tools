@@ -2,10 +2,11 @@
   "name": "chezmoi-tools",
   "displayName": "Chezmoi Tools",
   "description": "Chezmoi Tools is a Visual Studio Code extension designed to simplify managing dotfiles using Chezmoi. It provides seamless integration and enhances your workflow with intuitive commands directly accessible from VS Code.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "vscode": "^1.96.0"
   },
+  "activationEvents": [],
   "categories": [
     "Other"
   ],
@@ -37,12 +38,22 @@
       "explorer/context": [
         {
           "command": "chezmoi-tools.add",
-          "when": "resourceLangId == shellscript",
           "group": "navigation"
         },
         {
           "command": "chezmoi-tools.forget",
-          "when": "resourceLangId == shellscript",
+          "group": "navigation"
+        },
+        {
+          "command": "chezmoi-tools.edit",
+          "group": "navigation"
+        },
+        {
+          "command": "chezmoi-tools.apply",
+          "group": "navigation"
+        },
+        {
+          "command": "chezmoi-tools.diff",
           "group": "navigation"
         }
       ]
@@ -50,6 +61,7 @@
     "commands": [
       {
         "command": "chezmoi-tools.add",
+        "shortTitle": "Add File",
         "title": "Add File to Chezmoi"
       },
       {
@@ -71,22 +83,25 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "clean": "rm -rf out",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "lint": "eslint src",
     "test": "npm run compile && npm run lint",
-    "generate-bundle": "vsce package"
+    "generate-bundle": "vsce package",
+    "vscode:prepublish": "npm run compile",
+    "publish": "npm run compile && npm run lint && vsce publish"
   },
   "devDependencies": {
-    "@types/vscode": "^1.96.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.10.2",
+    "@types/vscode": "^1.96.0",
     "@typescript-eslint/eslint-plugin": "^8.19.0",
     "@typescript-eslint/parser": "^8.19.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
     "eslint": "^9.17.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vsce": "^2.15.0"
   }
 }
