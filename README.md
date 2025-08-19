@@ -24,4 +24,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## About the Author
 
-Created by [Jorcelino](mailto:jorcelino@live.com), a developer passionate about improving workflows through intuitive tools.
+Created by [Jorcelino](mailto:contact@jorcelino.dev), a developer passionate about improving workflows through intuitive tools.
